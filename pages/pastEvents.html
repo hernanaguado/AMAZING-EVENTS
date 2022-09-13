@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMAZING EVENTS PAST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+    <header>
+
+
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <a href="../index.html"><img class="navbar-brand logo" src="../assets/logo.png" alt="logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                    <div class="navbar-nav navv ">
+                        <a class="nav-link p-4 text-light boxNav"  href="../index.html">Home</a>
+                        <a class="nav-link p-4 text-light boxNav" aria-current="page" href="./upcomingEvents.html">Upcoming Events</a>
+                        <a class="nav-link p-4 text-light boxNav active" href="#">Past Events</a>
+                        <a class="nav-link p-4 text-light boxNav" href="../pages/contact.html">Contact</a>
+                        <a class="nav-link p-4 text-light boxNav" href="../pages/stats.html">Stats</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="linea pb-2 mb-2"></div>
+            <div class="d-flex justify-content-around align-items-center ssss">
+                <a href="./upcomingEvents.html"><img src="../assets/leftArrow.png" class="directionHtml" alt="leftArrow"></a>
+                <h2 class="text-center">PAST EVENTS</h2>
+                <a href="./contact.html"><img src="../assets/rightArrow.png" class="directionHtml" alt="rightArrow"></a>
+            </div>
+        
+    </header>
+    
+    <main class="mainIndex">
+
+        <div class="d-flex justify-content-around align-items-center">
+            <section id="checkBoxSection" class="d-flex box1Index">
+                <div class="contenedor-checks" v-for="categoryCheck in category">
+                    <label for="">{{categoryCheck}}</label> 
+                    <input type="checkbox" :id="categoryCheck" name="categoryCheck" :value="categoryCheck" v-model= "selectCategory">
+                        {{selectCheck}}
+                </div>
+            </section>
+            <div class="box2Index mt-2 ">
+                <nav class="navbar ">
+                    <div class="container-fluid ">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 search text-dark fw-bolder" type="search" aria-label="Search" placeholder="Search" id="inputSearch"  v-model="input">
+                            <img src="../assets/lupa.png" alt="search" class="lupa">
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <section id="mySection" class="d-flex flex-wrap justify-content-center">
+            <div v-for="event in eventosFiltrados" class="cardContainer">                       
+                <div class="card cardSize" >
+                        <img :src= "event.image"  class="card-img-top imgCard " :alt="event.name">
+                            <div class=" d-flex flex-column bg-dark ">
+                            <h4 class="card-title  text-center fs-3 text-warning">{{event.name}}</h4>
+                            <p class="card-text text-light m-2"><span class="text-warning ">Date:</span>  {{event.date}}</p>
+                            <p class="card-text text-light m-2"><span class="text-warning ">Location:</span>  {{event.place}}</p>                              
+                            <div class=" d-flex  justify-content-around">
+                                <p class="card-text text-light "><span class="text-warning ">$</span> {{event.price}}.00</p>
+                                <a :href="'../pages/details.html?id='+event._id" class="border-dark btn btn-warning">More Details</a>
+                            </div>
+                        </div>                       
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer>
+
+
+        <div class="d-flex justify-content-between ps-5 pe-5 align-items-center responsive">
+            <div>
+                <a href="#"><img class="p-3 media" src="../assets/instagramIco.png" alt="instagramIco"></a>
+                <a href="#"><img class="p-3 media" src="../assets/facebookIco.png" alt="facebookIco"></a>
+                <a href="#"><img class="p-3 media" src="../assets/whatsappIco.png" alt="whatsappIco"></a>
+            </div>
+
+            <div>
+                <p class="cohort"> COHORT FS030 | © COPYRIGHTS </p>
+            </div>
+        </div>
+
+
+
+
+
+
+    </footer>
+
+
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
